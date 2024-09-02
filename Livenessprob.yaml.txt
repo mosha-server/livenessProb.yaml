@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: Nginx
+spec:
+  containers:
+    - image: nginx
+      name: nginx
+      args:
+        - /bin/sh
+        - -c
+        - touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600
+       LivenessProbe:
+         exec:
+           command:
+             - cat
+             - /temp/healthy
+          initialDelaySeconds: 5
+          periodSeconds: 5
