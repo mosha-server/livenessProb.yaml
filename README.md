@@ -1,0 +1,1 @@
+in the above example I create a Nginx container and tell it that create a file (healthy) and after 30 second delete it. and our livenessprob check it. if there will be a problem with our container, it would not be able to create this file and then kubelet will kill the container to bring up a new one.
